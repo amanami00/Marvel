@@ -15,7 +15,7 @@ class MovieDetails extends Component {
         this.getComicList();
     }
 
-    getComicList = async () => {
+    getComicList = () => {
         const ts = new Date().getTime()
         const PRIVATEKEY = '43dd0ca283aca67728899ae3a56848828fd9d44e'
         const KEY = 'd9202c8cd3ee37634d9ec9bf58fc4298'

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { Link } from "react-router-dom";
 import imageLoaded from '../../assets/imageLoaded.gif'
 
@@ -13,21 +13,22 @@ class CharacterCard extends Component {
 
     render() {
         return (
-            <div className="ui card" style={{ margin: '10px' }}>
-                <div className="image postcardimgWrapper">
-                    {
-                        !this.state.isImageLoaded ? <img alt={this.props.name} className="postcardImg" src={`${imageLoaded}`} /> : null
-                    }
-                    <img alt={this.props.name} onLoad={() => this.setState({ isImageLoaded: true })} className="postcardImg" src={this.props.image} />
-                </div>
-                <div className="content postcardLabel">
-                    <Link to={`/marvel/characterDetail${this.props.id}`}>
-                        <div className="font header postcardLabelText">{this.props.name}</div>
-                    </Link>
-                </div>
+            <Fragment>
+                <Link to={`/marvel/characterDetail${this.props.id}`}>
+                    <div className="ui card" style={{ margin: '10px' }}>
+                        <div className="image postcardimgWrapper">
+                            {
+                                !this.state.isImageLoaded ? <img alt={this.props.name} className="postcardImg" src={`${imageLoaded}`} /> : null
+                            }
+                            <img alt={this.props.name} onLoad={() => this.setState({ isImageLoaded: true })} className="postcardImg" src={this.props.image} />
+                        </div>
+                        <div className="content postcardLabel">
+                            <div className="font header postcardLabelText">{this.props.name}</div>
+                        </div>
+                    </div>
+                </Link>
+            </Fragment>
 
-
-            </div>
         )
     }
 
