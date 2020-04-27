@@ -4,6 +4,7 @@ import CharacterDetails from "./Character/characterDetails";
 import characterList from "./Character/characterList";
 import MovieDetails from './Character/MovieDetails';
 import ComicDetails from './Character/ComicDetails';
+import CommentSection from './Character/CommentSection';
 import Header from "./layout/header";
 import '../Styles/index.css';
 
@@ -18,6 +19,7 @@ const App = () => {
                             <Route path='/marvel/characterDetail:charId' component={CharacterDetails} />
                             <Route path='/marvel/character/comic:charId' component={ComicDetails} />
                             <Route path='/marvel/character/movie:charId' component={MovieDetails} />
+                            <Route path="/marvel/comments" component={CommentSection} />
                         </Switch>
                     </div>
                 </div>

@@ -14,9 +14,17 @@
     float: right;
 }
 
+.heart {
+    width: 42px;
+    position: absolute;
+    top: 4px;
+    right: 1%;
+    float: right;
+}
+
 .searchBar {
     position: absolute !important;
-    right: 0px;
+    right: 6%;
     margin: 4px;
     top: 0px;
     width: 25%;
