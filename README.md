@@ -9,5 +9,5 @@
 - Google oAuth has been used for authentication
 
 ## Marvel API link:
-https://gateway.marvel.com/
-https://developer.marvel.com/
+- https://gateway.marvel.com/
+- https://developer.marvel.com/
