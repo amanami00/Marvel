@@ -10,3 +10,4 @@
 
 ## Marvel API link:
 https://gateway.marvel.com/
+https://developer.marvel.com/
