@@ -11,7 +11,6 @@ class MovieDetails extends Component {
     }
 
     componentDidMount() {
-        console.log('++++++')
         this.getComicList();
     }
 
@@ -23,7 +22,6 @@ class MovieDetails extends Component {
         api.get(`/characters/${this.props.match.params.charId}/series?apikey=${KEY}&ts=${ts}&hash=${hash}`)
             .then(response => {
                 this.setState({ seriesDetails: response.data.data.results })
-                console.log(this.state.seriesDetails)
             })
             .catch(error => {
                 console.log(error);

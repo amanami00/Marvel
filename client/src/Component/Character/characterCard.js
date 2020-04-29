@@ -8,7 +8,6 @@ class CharacterCard extends Component {
         this.state = {
             isImageLoaded: false
         }
-        console.log(this.state.isImageLoaded, '++++++++++++')
     }
 
     render() {

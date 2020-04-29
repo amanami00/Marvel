@@ -17,7 +17,6 @@ class SearchModal extends Component {
 
     handleInputChange = e => {
         e.preventDefault()
-        console.log(this.inputRef.current.value)
         this.setState({
             query: this.inputRef.current.value
         })
@@ -39,7 +38,6 @@ class SearchModal extends Component {
             }
         })
         this.setState({ result: response.data.data.results })
-        console.log(this.state.result, 'data')
     }
 
 

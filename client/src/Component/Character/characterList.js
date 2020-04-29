@@ -30,10 +30,8 @@ class CharacterList extends Component {
             }
         })
         this.setState({ characters: response.data.data.results })
-        console.log(this.state.characters[1])
     }
     componentDidMount() {
-        console.log(this.props.match.params.pageNo)
         this.fetchCharacterList()
     }
 

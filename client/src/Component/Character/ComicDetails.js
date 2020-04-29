@@ -23,7 +23,6 @@ class ComicDetails extends Component {
         api.get(`/characters/${this.props.match.params.charId}/comics?apikey=${KEY}&ts=${ts}&hash=${hash}`)
             .then(response => {
                 this.setState({ comicsDetails: response.data.data.results })
-                console.log(this.state.comicsDetails)
             })
             .catch(error => {
                 console.log(error);

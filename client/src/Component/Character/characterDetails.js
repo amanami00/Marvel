@@ -24,7 +24,6 @@ class CharacterDetails extends Component {
             }
         })
         const { id, name, description, thumbnail } = response.data.data.results[0]
-        console.log(response.data.data.results[0])
         this.setState({
             characterDetails: { id, name, description, imgSrc: `${thumbnail.path}.${thumbnail.extension}` }
         })
@@ -60,7 +59,6 @@ class CharacterDetails extends Component {
     }
 
     render() {
-        console.log(this.props.match.params.charId)
         return (
             <div>{this.showCharacterDetails()}</div>
         )

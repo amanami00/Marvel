@@ -4,9 +4,10 @@ import CharacterDetails from "./Character/characterDetails";
 import characterList from "./Character/characterList";
 import MovieDetails from './Character/MovieDetails';
 import ComicDetails from './Character/ComicDetails';
-import CommentSection from './Character/CommentSection';
+import CommentSection from './Comment/CommentSection';
 import Header from "./layout/header";
 import '../Styles/index.css';
+
 
 const App = () => {
     return (
