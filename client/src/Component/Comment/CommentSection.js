@@ -1,87 +1,77 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
-import { reduxForm, Field } from 'redux-form'
+import { ADD_COMMENT } from '../../Action'
 
 class CommentSection extends Component {
     constructor() {
         super()
         this.state = {
-            comment: ''
+            error: null,
+            comment: null
         }
         this.commentInput = React.createRef()
-    }
-
-    // getComment = (e) => {
-    //     e.preventDefault()
-    //     if (this.props.isSignedIn)
-    //         this.setState({ comment: this.commentInput.current.value })
-    //     else {
-    //         return (
-    //             <div>Please Signin first</div>
-    //         )
-    //     }
-    // }
-
-    renderInput = formProps => {
-        return (
-            <Fragment>
-                <input type="text"
-                    placeholder="tell us why you love marvel..."
-                    ref={this.commentInput}
-                    {...formProps.input}
-                />
-                {this.renderError(formProps.meta)}
-            </Fragment>
-
-        )
-    }
-
-    renderError = (meta) => {
-        if (meta.touched && meta.error) {
-            return (
-                <div class="ui pointing red basic label error">
-                    <div class="header">{meta.error}</div>
-                </div>
-            )
+        this.errorObj = {
+            COMMENT_ERROR: 'Comment should never be blank',
+            SIGNIN_ERROR: 'Sign in to add a comment'
         }
     }
 
-    onSubmit = formValue => {
-        console.log(formValue, 'myform') // i get the typed comment here
+    componentDidUpdate(prevProps) {
+        if (this.props.isSignedIn !== prevProps.isSignedIn) {
+            if (this.props.isSignedIn)
+                this.setState({ error: null })
+        }
+    }
+
+    validateInput = () => {
+        this.setState({
+            comment: this.commentInput.current.value
+        })
+        this.props.ADD_COMMENT(this.state.comment)
+    }
+
+    onSubmit = e => {
+        if (!this.state.comment) {
+            this.setState({ error: 'COMMENT_ERROR' })
+        } else {
+            this.setState({ error: null })
+            this.props.ADD_COMMENT(this.state.comment)
+        }
+        if (!this.props.isSignedIn) {
+            this.setState({ error: 'SIGNIN_ERROR' })
+        }
     }
 
     render() {
         return (
-            <Fragment>
-                <form className="ui fluid action input" onSubmit={this.props.handleSubmit(this.onSubmit)}>
-                    <Field name='comment' component={this.renderInput} />
-                    <div className="ui button" onClick={this.props.handleSubmit(this.onSubmit)}>Submit</div>
-                </form>
-            </Fragment>
+            <div>
+                <div className="ui fluid action input">
+                    <input type="text"
+                        placeholder="tell us why you love marvel..."
+                        ref={this.commentInput}
+                        onChange={this.validateInput}
+                    />
+                    <div className="ui button" onClick={this.onSubmit}>Submit</div>
+                </div>
+                {
+                    this.state.error ? <div className="ui negative message">
+                        <div className="header">
+                            {this.errorObj[this.state.error]}
+                        </div>
+                    </div> : null
+                }
 
+            </div>
         )
     }
-
-}
-
-const validate = (formValues) => {
-    let error = {}
-    if (!formValues.comment) {
-        error.comment = 'comment should not be blank' //error.<key>, key should be same as the name of the field for which validation is to be done
-    }
-    if(!this.props.isSignedIn) {
-        error.comment = 'You should sign first'
-    }
-    return error;
 }
 
 const mapStateToProps = state => {
-    return { isSignedIn: state.auth.isSignedIn }
+    return {
+        isSignedIn: state.auth.isSignedIn,
+        comment: state.comment
+
+    }
 }
 
-CommentSection = connect(mapStateToProps, {})(CommentSection);
-
-export default reduxForm({
-    form: 'commentForm', // redux form will start storing data in state with commentForm as key
-    validate // validate function will be called when the form initially renders & each time user interacts with the form
-})(CommentSection)
+export default connect(mapStateToProps, { ADD_COMMENT })(CommentSection);

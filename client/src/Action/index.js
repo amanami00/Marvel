@@ -10,3 +10,10 @@ export const SIGN_OUT = () => {
         type: 'SIGN_OUT'
     }
 }
+
+export const ADD_COMMENT = comment => {
+    return {
+        type: 'ADD_COMMENT',
+        payload: comment
+    }
+}

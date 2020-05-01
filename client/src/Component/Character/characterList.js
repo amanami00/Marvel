@@ -60,8 +60,6 @@ class CharacterList extends Component {
     }
 
     render() {
-        console.log(this.props.match.params.pageNo, this.prevPage, this.nextpage)
-
         if (this.state.characters.length === 0) {
             return (<div><Loader /></div>)
         }
