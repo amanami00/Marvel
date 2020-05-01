@@ -33,6 +33,12 @@ class CharacterDetails extends Component {
         this.fetchCharacterDetail();
     }
 
+    componentDidUpdate(prevProps) {
+        if (this.state.characterDetails !== prevProps.characterDetails) {
+            this.fetchCharacterDetail();
+        }
+      }
+
     showCharacterDetails = () => {
         if (!this.state.characterDetails) {
             return (<div><Loader /></div>)

@@ -21,15 +21,7 @@ class Header extends Component {
                 <Link to='/marvel/page0'>
                     <div className='logo font'>MARVEL</div>
                 </Link>
-
-                <div className="ui icon input searchBar">
-                    <input type="text"
-                        placeholder="Search your character"
-                        ref={this.inputRef}
-                        onChange={()=>this.handleInputChange(true)}
-                    />
-                    <i className="inverted circular search link icon"></i>
-                </div>
+                <button className="ui inverted button signin searchBar" onClick={()=>this.handleInputChange(true)}>Search</button>
                 <Link to='/marvel/comments'>
                     <img alt="comments" className="heart" src={heart}></img>
                 </Link>

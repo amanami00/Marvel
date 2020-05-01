@@ -18,7 +18,7 @@
     width: 42px;
     position: absolute;
     top: 4px;
-    right: 13%;
+    right: 26%;
     float: right;
 }
 
@@ -31,10 +31,8 @@
 
 .searchBar {
     position: absolute !important;
-    right: 18%;
-    margin: 4px;
-    top: 0px;
-    width: 25%;
+    right: 13%;
+    top: 5px;
 }
 .logo {
     margin: 15px;
