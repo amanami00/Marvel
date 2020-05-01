@@ -5,7 +5,6 @@
 
 ## Objective:
 - To implement basic concepts of react like React-router, refs, React portals, middleware, fetching data through API and populating the fetched data through Route Links
-- Express.js has been used for creating server and backend
 - Google oAuth has been used for authentication
 
 ## Marvel API link:
