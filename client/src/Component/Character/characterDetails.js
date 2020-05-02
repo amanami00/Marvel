@@ -12,13 +12,13 @@ class CharacterDetails extends Component {
 
     fetchCharacterDetail = async () => {
         const ts = new Date().getTime()
-        const PRIVATEKEY = '43dd0ca283aca67728899ae3a56848828fd9d44e'
-        const KEY = 'd9202c8cd3ee37634d9ec9bf58fc4298'
+        const PRIVATEKEY = '410aff201282a7c9965b296abb2d0ac6572d8e0f'
+        const KEY = '92a9dd29d04a4ba1bd426cf10b22f126'
         const hash = md5(ts + PRIVATEKEY + KEY)
 
         const response = await api.get(`/characters/${this.props.match.params.charId}`, {
             params: {
-                apikey: 'd9202c8cd3ee37634d9ec9bf58fc4298',
+                apikey: KEY,
                 ts,
                 hash,
             }
