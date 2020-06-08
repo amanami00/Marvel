@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import ReactDOM from 'react-dom'
 import { Link } from "react-router-dom";
-import SearchModal from './SearchModal';
+import SearchModal from './searchModal';
 import GoogleAuth from '../GoogleAuth.js'
 import heart from '../../assets/heart.png'
 

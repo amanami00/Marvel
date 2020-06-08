@@ -34,7 +34,8 @@ class CharacterDetails extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (this.state.characterDetails !== prevProps.characterDetails) {
+        console.log(this.state.characterDetails.id, prevProps.match.params.charId, 'componentdidupdate')
+        if (this.state.characterDetails.id != prevProps.match.params.charId) {
             this.fetchCharacterDetail();
         }
       }
