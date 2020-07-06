@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import api from '../api';
+import {api} from '../api';
 import md5 from 'md5'
 import { Grid } from 'semantic-ui-react'
 import CharacterCard from './characterCard'

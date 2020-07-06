@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import api from '../api'
+import {api} from '../api'
 import md5 from 'md5'
 import Loader from '../layout/loader'
 import { Link } from 'react-router-dom'

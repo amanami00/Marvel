@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { ADD_COMMENT } from '../../Action'
+import CommentList from "./commentList";
 
 class CommentSection extends Component {
     constructor() {
@@ -60,7 +61,7 @@ class CommentSection extends Component {
                         </div>
                     </div> : null
                 }
-
+            < CommentList /> 
             </div>
         )
     }

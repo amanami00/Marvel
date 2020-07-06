@@ -1,5 +1,10 @@
 import axios from 'axios'
 
-export default axios.create({
+export const api = axios.create({
     baseURL: 'https://gateway.marvel.com/v1/public'
 })
+
+export const db = axios.create({
+    baseURL: 'http://localhost:4000'
+})
+
